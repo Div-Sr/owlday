@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Google 1995</title>
+<style>
+h1, footer{
+	text-align:center;
+	color:red;
+}
+p{
+	font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+<h1>Google<sup>&copy;</sup> 1995</h1>
+<div>
+<p>International Owl Day</p>
+<p style="font-size: 30px;"><b>May 31</b></p>
+<p id="textToConvert">Google 1995: Owl day was first celebrated on May 31, 1857 in France because of the foundation of the Owl Forest in southern Germany</p>
+<button id="convertBtn">Speak</button>
+</div>
+<br>
+<img src="Great-horned-owl.webp"/>
+<br>
+<footer>Data is approved by Google LLC</footer>
+<script>
+const text = document.getElementById("textToConvert");
+const convertBtn = document.getElementById("convertBtn");
+
+convertBtn.addEventListener('click', function () {
+    const speechSynth = window.speechSynthesis;
+    const enteredText = text.innerText;
+
+    
+    if (!speechSynth.speaking) {
+        const newUtter =
+            new SpeechSynthesisUtterance(enteredText);
+        speechSynth.speak(newUtter);
+        convertBtn.textContent = "Sound is Paying..."
+    }
+    
+    setTimeout(() => {
+        convertBtn.textContent = "Play Converted Sound"
+    }, 5000);
+});
+</script>
+
+</body>
+</html>
